@@ -1,13 +1,12 @@
-package echoSwagger
+package echoswagger
 
 import (
 	"html/template"
-	"net/http"
 	"regexp"
 
-	"github.com/labstack/echo/v4"
-	"github.com/swaggo/files"
+	swaggerFiles "github.com/swaggo/files"
 	"github.com/swaggo/swag"
+	"github.com/webx-top/echo"
 )
 
 // Config stores echoSwagger configuration variables.
@@ -51,9 +50,8 @@ func EchoWrapHandler(confs ...func(c *Config)) echo.HandlerFunc {
 
 	return func(c echo.Context) error {
 		var matches []string
-		if matches = re.FindStringSubmatch(c.Request().RequestURI); len(matches) != 3 {
-
-			return c.String(http.StatusNotFound, "404 page not found")
+		if matches = re.FindStringSubmatch(c.Request().URI()); len(matches) != 3 {
+			return echo.ErrNotFound
 		}
 		path := matches[2]
 		prefix := matches[1]
@@ -62,12 +60,12 @@ func EchoWrapHandler(confs ...func(c *Config)) echo.HandlerFunc {
 		switch path {
 		case "index.html":
 
-			index.Execute(c.Response().Writer, config)
+			index.Execute(c.Response().Writer(), config)
 		case "doc.json":
 			doc, _ := swag.ReadDoc()
 			c.Response().Write([]byte(doc))
 		default:
-			handler.ServeHTTP(c.Response().Writer, c.Request())
+			handler.ServeHTTP(c.Response().StdResponseWriter(), c.Request().StdRequest())
 
 		}
 

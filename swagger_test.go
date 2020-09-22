@@ -1,19 +1,20 @@
-package echoSwagger
+package echoswagger
 
 import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
-	_ "github.com/swaggo/gin-swagger/example/basic/docs"
+	"github.com/webx-top/echo"
+	_ "github.com/webx-top/echo-swagger/example/docs"
+	otesting "github.com/webx-top/echo/testing"
 )
 
 func TestWrapHandler(t *testing.T) {
 
 	router := echo.New()
 
-	router.GET("/*", WrapHandler)
+	router.Get("/*", WrapHandler)
 
 	w1 := performRequest("GET", "/index.html", router)
 	assert.Equal(t, 200, w1.Code)
@@ -30,9 +31,5 @@ func TestWrapHandler(t *testing.T) {
 }
 
 func performRequest(method, target string, e *echo.Echo) *httptest.ResponseRecorder {
-	r := httptest.NewRequest(method, target, nil)
-	w := httptest.NewRecorder()
-
-	e.ServeHTTP(w, r)
-	return w
+	return otesting.Request(method, target, e)
 }
