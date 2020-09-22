@@ -16,6 +16,8 @@ func TestWrapHandler(t *testing.T) {
 
 	router.Get("/*", WrapHandler)
 
+	router.Commit()
+
 	w1 := performRequest("GET", "/index.html", router)
 	assert.Equal(t, 200, w1.Code)
 

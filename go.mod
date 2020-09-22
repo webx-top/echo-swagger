@@ -12,11 +12,10 @@ require (
 	github.com/admpub/queueChan v0.0.0-20151001074356-79908f7a499f // indirect
 	github.com/francoispqt/gojay v1.2.13 // indirect
 	github.com/go-openapi/spec v0.19.9 // indirect
-	github.com/labstack/echo/v4 v4.1.17
 	github.com/mailru/easyjson v0.7.6 // indirect
+	github.com/mattn/go-colorable v0.1.7 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/stretchr/testify v1.6.1
-	github.com/swaggo/echo-swagger v1.0.0
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/swag v1.6.7
 	github.com/webx-top/captcha v0.0.0-20161202061115-29e9e7f30aa0 // indirect
