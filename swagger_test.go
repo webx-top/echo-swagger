@@ -13,6 +13,8 @@ import (
 func TestWrapHandler(t *testing.T) {
 
 	router := echo.New()
+	router.RouteDebug = true
+	router.SetDebug(true)
 
 	router.Get("/*", WrapHandler)
 

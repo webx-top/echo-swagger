@@ -24,6 +24,18 @@ func URL(url string) func(c *Config) {
 	}
 }
 
+func JSFiles(jsFiles ...string) func(c *Config) {
+	return func(c *Config) {
+		c.JSFiles = jsFiles
+	}
+}
+
+func AppID(appID string) func(c *Config) {
+	return func(c *Config) {
+		c.AppID = appID
+	}
+}
+
 // WrapHandler wraps swaggerFiles.Handler and returns echo.HandlerFunc
 var WrapHandler = EchoWrapHandler()
 
@@ -43,10 +55,6 @@ func EchoWrapHandler(confs ...func(c *Config)) echo.HandlerFunc {
 	// create a template with name
 	t := template.New("swagger_index.html")
 	index, _ := t.Parse(indexTempl)
-
-	type pro struct {
-		Host string
-	}
 
 	var re = regexp.MustCompile(`(.*)(index\.html|doc\.json|favicon-16x16\.png|favicon-32x32\.png|/oauth2-redirect\.html|swagger-ui\.css|swagger-ui\.css\.map|swagger-ui\.js|swagger-ui\.js\.map|swagger-ui-bundle\.js|swagger-ui-bundle\.js\.map|swagger-ui-standalone-preset\.js|swagger-ui-standalone-preset\.js\.map)[\?|.]*`)
 
