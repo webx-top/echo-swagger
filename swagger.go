@@ -59,14 +59,12 @@ func EchoWrapHandler(confs ...func(c *Config)) echo.HandlerFunc {
 
 		switch path {
 		case "index.html":
-
 			index.Execute(c.Response().Writer(), config)
 		case "doc.json":
 			doc, _ := swag.ReadDoc()
 			c.Response().Write([]byte(doc))
 		default:
 			handler.ServeHTTP(c.Response().StdResponseWriter(), c.Request().StdRequest())
-
 		}
 
 		return nil
