@@ -1,5 +1,7 @@
 module github.com/webx-top/echo-swagger
 
+//replace github.com/webx-top/echo => ../echo
+
 require (
 	github.com/admpub/copier v0.0.1 // indirect
 	github.com/admpub/decimal v0.0.2 // indirect
@@ -16,18 +18,15 @@ require (
 	github.com/goccy/go-json v0.7.4 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/swag v1.7.0
 	github.com/webx-top/captcha v0.0.1 // indirect
 	github.com/webx-top/com v0.2.5 // indirect
-	github.com/webx-top/echo v2.16.0+incompatible
+	github.com/webx-top/echo v2.16.1+incompatible
 	github.com/webx-top/tagfast v0.0.0-20161020041435-9a2065ce3dd2 // indirect
 	github.com/webx-top/validation v0.0.1 // indirect
-	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
-	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	golang.org/x/tools v0.1.4 // indirect
 )
