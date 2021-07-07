@@ -60,7 +60,7 @@ func EchoWrapHandler(confs ...func(c *Config)) echo.HandlerFunc {
 
 	return func(c echo.Context) error {
 		var matches []string
-		if matches = re.FindStringSubmatch(c.Request().URI()); len(matches) != 3 {
+		if matches = re.FindStringSubmatch(c.Request().URL().Path()); len(matches) != 3 {
 			return echo.ErrNotFound
 		}
 		path := matches[2]
