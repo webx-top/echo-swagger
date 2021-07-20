@@ -25,13 +25,13 @@ require (
 	github.com/swaggo/swag v1.7.0
 	github.com/webx-top/captcha v0.0.1 // indirect
 	github.com/webx-top/com v0.2.5 // indirect
-	github.com/webx-top/echo v2.16.1+incompatible
+	github.com/webx-top/echo v2.17.3+incompatible
 	github.com/webx-top/tagfast v0.0.0-20161020041435-9a2065ce3dd2 // indirect
 	github.com/webx-top/validation v0.0.1 // indirect
-	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
-	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
+	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97 // indirect
+	golang.org/x/net v0.0.0-20210716203947-853a461950ff // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
-	golang.org/x/tools v0.1.4 // indirect
+	golang.org/x/tools v0.1.5 // indirect
 )
 
 go 1.13
