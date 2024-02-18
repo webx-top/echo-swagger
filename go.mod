@@ -1,29 +1,62 @@
 module github.com/webx-top/echo-swagger
 
 require (
-	github.com/admpub/color v1.7.0 // indirect
-	github.com/admpub/copier v0.0.0-20200812014131-931651b20f74 // indirect
-	github.com/admpub/decimal v0.0.0-20180709203117-cd690d0c9e24 // indirect
-	github.com/admpub/events v0.0.0-20190913050400-383beb0843c6 // indirect
-	github.com/admpub/fsnotify v1.4.4 // indirect
-	github.com/admpub/go-reuseport v0.0.3 // indirect
-	github.com/admpub/humanize v0.0.0-20190501023926-5f826e92c8ca // indirect
-	github.com/admpub/log v0.0.0-20191027043925-a6c03a7421a3 // indirect
-	github.com/admpub/queueChan v0.0.0-20151001074356-79908f7a499f // indirect
-	github.com/francoispqt/gojay v1.2.13 // indirect
-	github.com/go-openapi/spec v0.19.9 // indirect
-	github.com/labstack/echo/v4 v4.1.17
-	github.com/mailru/easyjson v0.7.6 // indirect
-	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/stretchr/testify v1.6.1
-	github.com/swaggo/echo-swagger v1.0.0
-	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
-	github.com/swaggo/swag v1.6.7
-	github.com/webx-top/captcha v0.0.0-20161202061115-29e9e7f30aa0 // indirect
-	github.com/webx-top/com v0.0.2 // indirect
-	github.com/webx-top/echo v2.3.6+incompatible
-	github.com/webx-top/tagfast v0.0.0-20161020041435-9a2065ce3dd2 // indirect
-	github.com/webx-top/validation v0.0.0-20200425052735-86da7bb89191 // indirect
+	github.com/stretchr/testify v1.8.4
+	github.com/swaggo/echo-swagger v1.4.1
+	github.com/swaggo/files v1.0.1
+	github.com/swaggo/swag v1.16.3
+	github.com/webx-top/echo v1.6.1
 )
 
-go 1.13
+require (
+	github.com/KyleBanks/depth v1.2.1 // indirect
+	github.com/admpub/color v1.8.1 // indirect
+	github.com/admpub/decimal v1.3.1 // indirect
+	github.com/admpub/events v1.3.6 // indirect
+	github.com/admpub/fsnotify v1.7.0 // indirect
+	github.com/admpub/go-isatty v0.0.11 // indirect
+	github.com/admpub/go-reuseport v0.0.4 // indirect
+	github.com/admpub/humanize v0.0.0-20190501023926-5f826e92c8ca // indirect
+	github.com/admpub/log v1.3.6 // indirect
+	github.com/admpub/realip v0.1.1 // indirect
+	github.com/admpub/timeago v1.2.1 // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/francoispqt/gojay v1.2.13 // indirect
+	github.com/ghodss/yaml v1.0.0 // indirect
+	github.com/go-openapi/jsonpointer v0.20.2 // indirect
+	github.com/go-openapi/jsonreference v0.20.4 // indirect
+	github.com/go-openapi/spec v0.20.14 // indirect
+	github.com/go-openapi/swag v0.22.9 // indirect
+	github.com/goccy/go-json v0.10.2 // indirect
+	github.com/hashicorp/go-version v1.6.0 // indirect
+	github.com/josharian/intern v1.0.0 // indirect
+	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/labstack/echo/v4 v4.11.4 // indirect
+	github.com/labstack/gommon v0.4.2 // indirect
+	github.com/mailru/easyjson v0.7.7 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.20 // indirect
+	github.com/mitchellh/go-homedir v1.1.0 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/swaggo/files/v2 v2.0.0 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasttemplate v1.2.2 // indirect
+	github.com/webx-top/captcha v0.1.0 // indirect
+	github.com/webx-top/com v1.2.12 // indirect
+	github.com/webx-top/poolx v0.0.0-20210912044716-5cfa2d58e380 // indirect
+	github.com/webx-top/tagfast v0.0.1 // indirect
+	github.com/webx-top/validation v0.0.3 // indirect
+	golang.org/x/crypto v0.19.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/sync v0.6.0 // indirect
+	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/tools v0.18.0 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
+)
+
+go 1.21
