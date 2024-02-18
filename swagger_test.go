@@ -7,14 +7,20 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/webx-top/echo"
 	_ "github.com/webx-top/echo-swagger/example/docs"
+	mw "github.com/webx-top/echo/middleware"
 	otesting "github.com/webx-top/echo/testing"
 )
 
 func TestWrapHandler(t *testing.T) {
 
 	router := echo.New()
+	router.RouteDebug = true
+	router.SetDebug(true)
+	router.Use(mw.Recover(), mw.Log())
 
 	router.Get("/*", WrapHandler)
+
+	router.Commit()
 
 	w1 := performRequest("GET", "/index.html", router)
 	assert.Equal(t, 200, w1.Code)

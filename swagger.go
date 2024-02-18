@@ -12,13 +12,27 @@ import (
 // Config stores echoSwagger configuration variables.
 type Config struct {
 	//The url pointing to API definition (normally swagger.json or swagger.yaml). Default is `doc.json`.
-	URL string
+	URL     string
+	JSFiles []string
+	AppID   string
 }
 
 // URL presents the url pointing to API definition (normally swagger.json or swagger.yaml).
 func URL(url string) func(c *Config) {
 	return func(c *Config) {
 		c.URL = url
+	}
+}
+
+func JSFiles(jsFiles ...string) func(c *Config) {
+	return func(c *Config) {
+		c.JSFiles = jsFiles
+	}
+}
+
+func AppID(appID string) func(c *Config) {
+	return func(c *Config) {
+		c.AppID = appID
 	}
 }
 
@@ -42,15 +56,11 @@ func EchoWrapHandler(confs ...func(c *Config)) echo.HandlerFunc {
 	t := template.New("swagger_index.html")
 	index, _ := t.Parse(indexTempl)
 
-	type pro struct {
-		Host string
-	}
-
 	var re = regexp.MustCompile(`(.*)(index\.html|doc\.json|favicon-16x16\.png|favicon-32x32\.png|/oauth2-redirect\.html|swagger-ui\.css|swagger-ui\.css\.map|swagger-ui\.js|swagger-ui\.js\.map|swagger-ui-bundle\.js|swagger-ui-bundle\.js\.map|swagger-ui-standalone-preset\.js|swagger-ui-standalone-preset\.js\.map)[\?|.]*`)
 
 	return func(c echo.Context) error {
 		var matches []string
-		if matches = re.FindStringSubmatch(c.Request().URI()); len(matches) != 3 {
+		if matches = re.FindStringSubmatch(c.Request().URL().Path()); len(matches) != 3 {
 			return echo.ErrNotFound
 		}
 		path := matches[2]
@@ -141,7 +151,16 @@ const indexTempl = `<!-- HTML for static distribution bundle build -->
 <div id="swagger-ui"></div>
 
 <script src="./swagger-ui-bundle.js"> </script>
-<script src="./swagger-ui-standalone-preset.js"> </script>
+<script src="./swagger-ui-standalone-preset.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+{{/* <script src="/public/assets/frontend/js/swagger/function.js"></script> */}}
+<script type="text/javascript">
+function requestInterceptor(){return this;}
+function onSwaggerReady(){}
+</script>
+{{- range .JSFiles -}}
+<script src="{{.}}"></script>
+{{- end}}
 <script>
 window.onload = function() {
   // Build a system
@@ -149,6 +168,7 @@ window.onload = function() {
     url: "{{.URL}}",
     dom_id: '#swagger-ui',
     validatorUrl: null,
+    requestInterceptor: requestInterceptor,
     presets: [
       SwaggerUIBundle.presets.apis,
       SwaggerUIStandalonePreset
@@ -160,6 +180,10 @@ window.onload = function() {
   })
 
   window.ui = ui
+  {{if .AppID}}
+  $('.download-url-button').before('<input type="text" id="app-id-input" class="app-id-input" value="{{.AppID}}" placeholder="App ID" style="width:300px" title="App ID">');
+  {{end}}
+  onSwaggerReady();
 }
 </script>
 </body>
